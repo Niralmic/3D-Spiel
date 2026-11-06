@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://qxhm3o8pr7ek"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qemlc"]
+length = 3.3982217
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a202f"]
+sky_material = SubResource("ProceduralSkyMaterial_4xowi")
+
+[sub_resource type="Environment" id="Environment_noarx"]
+background_mode = 2
+sky = SubResource("Sky_a202f")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qemlc"]
+
+[node name="Main" type="Node3D" unique_id=35014041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6438546, -1.6962018, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1912380153]
+shape = SubResource("SeparationRayShape3D_qemlc")
+
+[node name="World" type="Node3D" parent="." unique_id=1785500894]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World" unique_id=123349499]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World" unique_id=468266702]
+environment = SubResource("Environment_noarx")
+
+[node name="Camerapivot" type="Node3D" parent="." unique_id=1507826333]
+
+[node name="Camera3D" type="Camera3D" parent="Camerapivot" unique_id=520537386]
+transform = Transform3D(0.99405634, -0.008541583, 0.10853144, 0, 0.99691737, 0.07845886, -0.108867034, -0.07799253, 0.990992, 3.9572158, 3.4402962, -21.799828)
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=1577652817]
+transform = Transform3D(-0.9997478, -0.022456037, 0, 0.022456037, -0.9997478, 0, 0, 0, 1, 0.37592125, 1.8784648, -0.060302734)
+size = Vector3(8.287628, 0.114746094, 7.4780273)
+material = SubResource("StandardMaterial3D_qemlc")
